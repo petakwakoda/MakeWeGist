@@ -18,11 +18,16 @@
 
     let channel = pusher.subscribe('my-channel');
 	channel.bind('my-event', function(data) {
-	  const paragraph = document.createElement('p');
-          paragraph.innerHTML = data.message;
-          document.getElementById('messages_display').appendChild(paragraph);
+	      const divElement = document.createElement('div');
+          divElement.classList.add('msgdisplay-main');
+          divElement.innerHTML = `<p>${data.message}</p>
+                                  <p>${data.sendTime}</p>`
+          document.getElementById('messages_display').appendChild(divElement);
 		// Scroll to the bottom of the container when a new message becomes available
-          document.getElementById('messages_display').scrollTop( document.getElementById('messages_display')[0].scrollHeight);
+          document.getElementById('messages_display').scrollTo({
+                 top: document.getElementById('messages_display').scrollHeight,
+                 behavior: "smooth",
+            });
 	});
 	
 </script>
