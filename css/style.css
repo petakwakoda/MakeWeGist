@@ -17,9 +17,12 @@ input:focus {
 }
 
 .input_send {
-  height: 50px;
+  height: 40px;
   background: #82b541;
   border-color: #82b541;
+  color: white;
+  cursor: pointer;
+  border-radius: 10px;
 }
 
 #messages_display {
